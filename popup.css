@@ -1,0 +1,70 @@
+body {
+  width: 260px;
+  height: 360px;
+  padding: 12px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: system-ui, sans-serif;
+  transition: 0.3s;
+}
+
+.cat {
+  width: 110px;
+  animation: bounce 1.4s infinite;
+}
+
+select, button {
+  width: 100%;
+  margin-top: 6px;
+  padding: 6px;
+  border-radius: 10px;
+  border: none;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+.themes {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.themes button {
+  flex: 1;
+  cursor: pointer;
+}
+
+body.light {
+  background: linear-gradient(135deg, #ffb6c1, #ffd1dc);
+  color: black;
+}
+
+body.dark {
+  background: #121212;
+  color: white;
+}
+
+body.neon {
+  background: black;
+  color: #00ffcc;
+}
+
+body.neon select,
+body.neon button {
+  background: black;
+  color: #00ffcc;
+  border: 1px solid #00ffcc;
+  box-shadow: 0 0 10px #00ffcc;
+}
+
+.hint {
+  font-size: 11px;
+  margin-top: 6px;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}

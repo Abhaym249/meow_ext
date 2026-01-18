@@ -1,0 +1,140 @@
+# 🐱 Meow Click – Chrome Extension
+
+Meow Click is a fun, lightweight Chrome extension that plays cute cat sounds every time you click anywhere on a webpage 🐾  
+It includes animated paw prints, sound customization, random mode, neon theme, and a click-streak surprise meow.
+
+---
+
+## ✨ Features
+
+- 🖱️ **Meow on Every Click**  
+  Any mouse click triggers a cat sound.
+
+- 🎶 **Multiple Cat Sounds**  
+  Choose between classic meow, soft meow, angry cat, or kitten sound.
+
+- 🎲 **Random Sound Mode**  
+  Each click plays a random cat sound.
+
+- 🔊 **Volume Control**  
+  Adjust sound volume using a slider.
+
+- 🐾 **Paw Print Animation**  
+  Cute paw prints appear at click position.
+
+- 🌈 **Neon / Dark Mode**  
+  Toggle vibrant neon UI from the popup.
+
+- 🐱 **Different Sounds for Different Websites**  
+  Example:
+  - YouTube → Angry cat  
+  - Coding sites → Soft meow  
+  - Google → Kitten
+
+- 🎉 **Click Streak Reward**  
+  Rapid clicking triggers a special bonus meow.
+
+---
+
+## 📁 Folder Structure
+
+meow-extension/
+│
+├── manifest.json
+├── content.js
+├── content.css
+├── popup.html
+├── popup.css
+├── popup.js
+│
+├── sounds/
+│ ├── meow1.mp3
+│ ├── meow2.mp3
+│ ├── angry.mp3
+│ ├── kitten.mp3
+│ └── special.mp3
+│
+└── images/
+└── cat.gif
+
+yaml
+Copy code
+
+---
+
+## 🚀 Installation (Developer Mode)
+
+1. Open Chrome and go to  
+   `chrome://extensions`
+2. Enable **Developer mode** (top right)
+3. Click **Load unpacked**
+4. Select the `meow-extension` folder
+5. Click anywhere on a webpage → **MEOW 🐱**
+
+---
+
+## 🔧 Customization
+
+### Add Your Own Sounds
+Replace MP3 files inside the `sounds/` folder  
+Keep the same filenames or update them in `content.js`.
+
+### Add More Websites
+Edit the `siteMap` object in `content.js`:
+```js
+const siteMap = {
+  "youtube.com": "angry",
+  "leetcode.com": "meow2",
+  "google.com": "kitten"
+};
+📦 Chrome Web Store Ready
+Manifest V3 compliant
+
+No external APIs
+
+No tracking
+
+Lightweight & fast
+
+You can directly upload this to the Chrome Web Store after adding:
+
+Extension icon
+
+Screenshots
+
+Store description
+
+🛠️ Tech Stack
+JavaScript
+
+HTML5
+
+CSS3
+
+Chrome Extensions API (Manifest V3)
+
+❤️ Credits
+Cat sounds from royalty-free sources
+
+Paw print animation inspired by playful UI effects
+
+Built for fun and learning
+
+📜 License
+This project is free to use for learning, personal projects, and fun extensions 🐾
+
+🐱 Happy clicking. May your browser always meow.
+
+markdown
+Copy code
+
+---
+
+If you want next:
+- 🔥 **Chrome Web Store description + tags**
+- 🎨 **Extension icon (cat logo)**
+- 📦 **ZIP file checklist**
+- 🧪 **Bug-proof testing steps**
+- 🐾 **Cursor-following cat**
+
+Just tell me 😸
