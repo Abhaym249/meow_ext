@@ -1,38 +1,49 @@
-let lastClick = 0;
-let streak = 0;
+let lastClickTime = 0;
+let clickCount = 0;
 
-document.addEventListener("click", (e) => {
+document.addEventListener("click", () => {
   chrome.storage.sync.get(
     ["sound", "random", "volume"],
     (data) => {
 
       const sounds = ["meow1", "meow2", "angry", "kitten"];
 
-      // Website-based sound
       const siteMap = {
         "youtube.com": "angry",
         "leetcode.com": "meow2",
         "google.com": "kitten"
       };
 
-      let hostname = location.hostname;
-      let siteSound = Object.keys(siteMap)
-        .find(site => hostname.includes(site));
+      const hostname = location.hostname;
 
-      let selectedSound =
-        siteSound ||
-        (data.random
-          ? sounds[Math.floor(Math.random() * sounds.length)]
-          : data.sound || "meow1");
+      let siteSound = null;
+      for (const site in siteMap) {
+        if (hostname.includes(site)) {
+          siteSound = siteMap[site];
+          break;
+        }
+      }
 
-      // Click streak logic
+      let selectedSound;
+      if (siteSound) {
+        selectedSound = siteSound;
+      } else if (data.random) {
+        selectedSound = sounds[Math.floor(Math.random() * sounds.length)];
+      } else {
+        selectedSound = data.sound || "meow1";
+      }
+
       const now = Date.now();
-      streak = (now - lastClick < 600) ? streak + 1 : 1;
-      lastClick = now;
+      if (now - lastClickTime < 300) {
+        clickCount++;
+      } else {
+        clickCount = 1;
+      }
+      lastClickTime = now;
 
-      if (streak >= 10) {
+      if (clickCount === 10) {
         selectedSound = "special";
-        streak = 0;
+        clickCount = 0;
       }
 
       const audio = new Audio(
@@ -42,13 +53,4 @@ document.addEventListener("click", (e) => {
       audio.play();
     }
   );
-
-  // 🐾 Paw animation
-  const paw = document.createElement("div");
-  paw.className = "paw-print";
-  paw.style.left = e.pageX + "px";
-  paw.style.top = e.pageY + "px";
-  document.body.appendChild(paw);
-
-  setTimeout(() => paw.remove(), 800);
 });
