@@ -1,15 +1,19 @@
-.paw-print {
-  position: absolute;
-  width: 32px;
-  height: 32px;
-  background-image: url("https://i.imgur.com/2yaf2wb.png");
-  background-size: cover;
+.meow-emoji {
+  position: fixed;
+  font-size: 28px;
   pointer-events: none;
-  z-index: 999999;
-  animation: fade 0.8s ease-out forwards;
+  transform: translate(-50%, -50%);
+  animation: meow-pop 1s ease-out forwards;
+  z-index: 2147483647;
 }
 
-@keyframes fade {
-  0% { transform: scale(0.5); opacity: 1; }
-  100% { transform: scale(1.6); opacity: 0; }
+@keyframes meow-pop {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -80%) scale(1.6);
+  }
 }
